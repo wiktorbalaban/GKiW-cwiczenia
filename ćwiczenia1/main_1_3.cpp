@@ -13,7 +13,7 @@ Core::Shader_Loader shaderLoader;
 
 void renderScene()
 {
-	
+
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.3f, 0.3f, 1.0f);
@@ -28,37 +28,37 @@ void renderScene()
 	glm::mat3 transform2;
 	glm::mat3 transform;
 
-
+	
+	/*pierwsza kolumna*/
 	transform1[0][0] = cos(time);
-	transform1[0][1] = -sin(time);
+	transform1[0][1] = sin(time);
 	transform1[0][2] = 0;
-
-	transform1[1][0] = sin(time);
+	/*druga kolumna*/
+	transform1[1][0] = -sin(time);
 	transform1[1][1] = cos(time);
 	transform1[1][2] = 0;
-
+	/*trzecia kolumna*/
 	transform1[2][0] = 0;
 	transform1[2][1] = 0;
-	transform1[2][2] = 1;	
+	transform1[2][2] = 1;
 
 
 
-
-
+	/*pierwsza kolumna*/
 	transform2[0][0] = 1;
 	transform2[0][1] = 0;
 	transform2[0][2] = 0;
-
+	/*druga kolumna*/
 	transform2[1][0] = 0;
 	transform2[1][1] = 1;
 	transform2[1][2] = 0;
-
+	/*trzecia kolumna*/
 	transform2[2][0] = 0;
 	transform2[2][1] = sin(time*(-1));
-	transform2[2][2] = 1;	
-	
-	transform=transform1*transform2;
+	transform2[2][2] = 1;
 
+
+	transform = transform2*transform1;
 
 
 	// Polecenie glUniformMatrix3fv wysyla zmienna "transform" do karty graficznej i przypisuje ja do zmiennej typu mat3 o nazwie "transformation" w shaderze.
@@ -72,7 +72,7 @@ void renderScene()
 	tab[1] = -0.22;
 	tab[2] = 1;
 	*/
-	tab[0] = 0;
+	tab[0] = -0.28;
 	tab[1] = 0;
 	tab[2] = 1;
 
